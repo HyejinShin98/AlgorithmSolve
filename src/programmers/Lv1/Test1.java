@@ -29,13 +29,13 @@ public class Test1 {
     }
 
     public static int solution(int a, int b, int n) { // a:마트에 줄 병 수, b:빈병을 가져다주면 마트가 주는 콜라병수, n:상빈이의 빈병개수
-        int cnt = 0;	// 상빈이가 받을 총 병 수
+        int result = 0;	// 상빈이가 받을 총 병 수
         while (n >= a) {
             int receive = (n / a) * b;  // 상빈이가 제출하여 받은 병 수
-            cnt += receive;         // 총 받은 병에 더하기
+            result += receive;         // 총 받은 병에 더하기
             n = receive + (n % a); // 현재 가지고 있는 병 수 계산
         }
-        return cnt;
+        return result;
     }
 }
 
