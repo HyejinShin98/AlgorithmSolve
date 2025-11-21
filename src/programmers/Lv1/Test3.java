@@ -19,7 +19,7 @@ package programmers.Lv1;
      위 3개가 매개변수로 주어짐. 이 떄 상품을 받을 직원의 수를 return하도록 solution함수를 완성해라.
 
  */
-public class Test2 {
+public class Test3 {
     public static void main(String[] args) {
         int[] schedules = {700,800,1100}; // 직원n명이 설정한 출근시각 배열 (7:00 ~ 11:00 사이)
         int[][] timelogs = { // 직원들이 일주일동안 출근한 시각을 담은 배열
@@ -79,7 +79,17 @@ public class Test2 {
                 // 요일계산 (1~7 : 월~일)
                 int currentDay = ((startday + j - 1) % 7) + 1;
 
+                // 주말은 늦게와도 상관없으니까 패스. 평일에는 출근시각 비교
+                if(day == 6 || day == 7 || time <= passTime) {
+                    success++;
                 }
+            }
+            if(success == 7) { // 일주일 모두 출근 성공했을 경우
+                answer++;
+            }
+        }
+
+        return answer;
     }
 }
 
