@@ -79,7 +79,17 @@ public class Test2 {
                 // 요일계산 (1~7 : 월~일)
                 int currentDay = ((startday + j - 1) % 7) + 1;
 
+                // 주말은 늦게와도 상관없으니까 패스. 평일에는 출근시각 비교
+                if(day == 6 || day == 7 || time <= passTime) {
+                    success++;
                 }
+            }
+            if(success == 7) { // 일주일 모두 출근 성공했을 경우
+                answer++;
+            }
+        }
+
+        return answer;
     }
 }
 
